@@ -69,7 +69,7 @@ internal sealed class SpreadsheetCellReader
         var tokenDirectory = Path.Combine(_localDataDirectory, "oauth");
         var credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
             clientSecrets,
-            [SheetsService.Scope.SpreadsheetsReadonly],
+            new[] { SheetsService.Scope.SpreadsheetsReadonly },
             "user",
             CancellationToken.None,
             new FileDataStore(tokenDirectory, true));
