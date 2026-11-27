@@ -1,6 +1,6 @@
 # GolfStatistics
 
-GolfStatistics is a Windows desktop app currently in proof-of-concept stage. It reads one cell from a Google Sheets workbook and displays the value; it does not yet collect or present golf statistics. The app is built with C#/.NET 11 and WinUI 3.
+A Windows desktop app for collecting golf data from Google Drive and presenting statistics. The app is built with C#/.NET 11 and WinUI 3.
 
 ## Requirements
 
@@ -20,6 +20,8 @@ Press **F5** to build and launch the app with the debugger. The project is unpac
 
 ## Current functionality
 
+**Current status:** The app is a proof of concept. It currently reads one cell from a Google Sheets workbook; broader golf-data collection and statistics are not implemented yet.
+
 On launch, the app displays the locally cached value of `SheetInfo!B1` from the 2016 workbook, if one is available. Select **Retrieve from Google** to sign in and fetch the latest value. Access is read-only and limited to Google Sheets. An empty or unavailable cell is reported as a retrieval failure.
 
 The OAuth token, cached cell value, and remembered client-secrets path are stored under `%LOCALAPPDATA%\GolfStatistics` (including the `oauth` subdirectory for the token). The cached value can be displayed without signing in or network access.
@@ -33,4 +35,4 @@ To retrieve the cell:
 3. Click **Retrieve from Google** and select that JSON file when prompted. Keep the file outside the repository.
 4. Ensure the Google account used at sign-in has access to the workbook. The app remembers the selected file path locally; alternatively, set `GOOGLE_OAUTH_CLIENT_SECRETS` to override it.
 
-The first retrieval opens Google sign-in. Later retrievals reuse the saved token unless it is no longer valid. The app currently supports only this single workbook cell; broader golf-data collection and statistics are not implemented yet.
+The first retrieval opens Google sign-in. Later retrievals reuse the saved token unless it is no longer valid.
